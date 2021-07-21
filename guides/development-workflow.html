@@ -113,95 +113,12 @@
       </div>
       <nav class="sidebar-nav" aria-label="sidebar">      <h1 class="page-title">Development workflow</h1>
       <ul>
-        <li data-title="Introduction" data-content="Development principlesAs part of regular retrospectives we evolve our principles by identifying what
-works well. When we try something that helps with a particular pattern of
-problem the team can acknowledge the benefits it brings and introduce it as a
-principle.">
+        <li data-title="Introduction" data-content="Development principlesDevelopment principles can be found in the development profession.">
           <a href="#introduction" data-target="introduction">Introduction</a>
                 <ul>
-        <li data-title="Development principles" data-content="As part of regular retrospectives we evolve our principles by identifying what
-works well. When we try something that helps with a particular pattern of
-problem the team can acknowledge the benefits it brings and introduce it as a
-principle.">
+        <li data-title="Development principles" data-content="Development principles can be found in the development profession.">
           <a href="#development-principles" data-target="development-principles">Development principles</a>
-                <ul>
-        <li data-title="Communicate frequently" data-content="
-  space to learn from each other
-  make shared decisions
-  prevent duplication
-  solve problems quicker
-">
-          <a href="#communicate-frequently" data-target="communicate-frequently">Communicate frequently</a>
           
-        </li>
-      </ul>
-      <ul>
-        <li data-title="Two pairs of eyes" data-content="All code we write needs be reviewed by another developer. We hope that doing
-this will mean we:
-  ship better quality code
-  get the opportunity to learn new skills
-  increase the shared knowledge of our products
-">
-          <a href="#two-pairs-of-eyes" data-target="two-pairs-of-eyes">Two pairs of eyes</a>
-          
-        </li>
-      </ul>
-      <ul>
-        <li data-title="Everything is tracked" data-content="All code we write is represented in Trello (or another ticketing system as
-required by the client) so that:
-  the client can easily visualise how we’re doing and what needs their attention
-  the team can see and react to bottle necks
-  delivery managers can see what cards have been lingering
-  developers can be confident what they are deploying
-">
-          <a href="#everything-is-tracked" data-target="everything-is-tracked">Everything is tracked</a>
-          
-        </li>
-      </ul>
-      <ul>
-        <li data-title="Own your code" data-content="Having the opportunity to see a piece of work through to completion is a great
-way to for developers to grow. To encourage this we ask reviewers to leave their
-feedback, ask questions and discuss the code but not to make any changes without
-the okay from the author. This will hopefully allow us to:
-  learn from our mistakes
-  create personal achievements from seeing work through to production
-">
-          <a href="#own-your-code" data-target="own-your-code">Own your code</a>
-          
-        </li>
-      </ul>
-      <ul>
-        <li data-title="Do the smallest amount of good work" data-content="We aspire to regularly ship
-good code and deliver it to
-the users as often as possible. Doing so efficiently requires a balanced
-approach to development.Good signs:
-  the code is easy to read and understand
-  the code didn’t take too long to write
-  the code is relatively easy to change
-Bad signs:
-  spending too much time over engineering (gold plating) our code
-  delivering too quickly at the cost of any code quality
-">
-          <a href="#do-the-smallest-amount-of-good-work" data-target="do-the-smallest-amount-of-good-work">Do the smallest amount of good work</a>
-          
-        </li>
-      </ul>
-      <ul>
-        <li data-title="The twenty-minute rules" data-content="
-  being helpful is one of our values and this extends to development. If after
-spending 20 minutes on a problem you haven’t made progress, invoke the
-twenty-minute rule with another developer and get their advice
-  discussions that go on for twenty-minutes or more can be a time sink. If an
-agreement on how to progress cannot be found after 20 minutes, mentioning
-this rule provides a pre-agreed way to acknowledge the problem and get to a
-resolution as quickly as possible. Rate your concern for the issue out of 10
-and a next step should naturally emerge
-">
-          <a href="#the-twenty-minute-rules" data-target="the-twenty-minute-rules">The twenty-minute rules</a>
-          
-        </li>
-      </ul>
-
         </li>
       </ul>
 
@@ -214,14 +131,9 @@ general guidelines.">
                 <ul>
         <li data-title="Start work on a new story" data-content="
   assign yourself to the Trello card
-  move the card to Trello’s ‘In progress’ column
-  
-    make a new branch off of develop
-
-    git checkout -b <branch-name> origin/develop
-    
-  
-  meet the acceptance criteria
+  move the card to indicate you’ve started work
+  make a new branch from the active development branch
+  write tested code that meets the acceptance criteria
   update the changelog
   commit your code
 ">
@@ -237,11 +149,11 @@ general guidelines.">
     git push origin <branch-name>
     
   
-  create a pull request into the develop branch
+  create a pull request into the active development branch
   link the Trello card to the new pull request, linking directly or by using
 the Trello
 power up
-  move the Trello card into the ‘Awaiting review column’
+  update the card to indicate it’s now ready for review by a peer
 ">
           <a href="#submit-your-story-for-code-review" data-target="submit-your-story-for-code-review">Submit your story for code review</a>
           
@@ -249,26 +161,38 @@ power up
       </ul>
       <ul>
         <li data-title="Reviewing another developer’s pull request" data-content="
-  move the Trello card into the ‘Under code review’ column
-  find and read the Trello card’s acceptance criteria
+  update the Trello card to indicate you’re now looking at it
+  find and read the Trello card’s user need or acceptance criteria
   find and read through the pull request, carrying out a
 code review
     
-      if it is ready:
+      if you think it’s ready:
         
-          press the merge button
-          delete the leftover branch
-          move the Trello card into ‘Deployed to Staging’
+          leave your feedback (positive comments are great to receive)
+          approve the pull request
         
       
-      if it’s not ready:
+      if you think it’s not ready:
         
-          leave feedback
-          mention the author so they’re aware
+          leave your feedback
+          consider letting the author know by Slack that it’s back with them
         
       
     
   
+GitHub offers us a number of options when finalising a review. These may be
+interpreted and used differently depending on style but a good rule of thumb to
+get started could be:
+  Approve - I am confident that this pull request can safely be merged in. I MAY
+also leave optional suggestions which the reviewer MAY want to consider
+  Comment - I may not be confident in the change, in which case I should explain
+why this SHOULD NOT be merged yet and what SHOULD be considered. Alternatively
+I might not feel confident enough to approve this pull request but MAY have
+suggestions that SHOULD be considered
+  Request changes (not available on GitLab) - This may be used to further
+indicate that this pull request SHOULD NOT be merged. It may contain severe
+issues such as security concerns or bugs which might have a serious impact.
+This option is used to explicitly nullify any other review that chose approval
 ">
           <a href="#reviewing-another-developers-pull-request" data-target="reviewing-another-developers-pull-request">Reviewing another developer’s pull request</a>
           
@@ -348,37 +272,28 @@ git push
         <li data-title="Deploying" data-content="Our approach is one of
 continuous delivery meaning
 we build, test and deploy as frequently as possible.We do this by using services such as Chef, TravisCI or GitHub Actions which are
-configured to listen for Git pushes and then initiate the correct deployment.">
+configured to listen for Git pushes and then initiate an automatic deployment.Whilst these deployments should be automatic it should be noted that they can
+take a short time to run.">
           <a href="#deploying" data-target="deploying">Deploying</a>
                 <ul>
         <li data-title="Staging" data-content="Staging deployments are automatic and should be initiated when each pull request
-is merged. When you click merge the changes are immediately deployed to the
-Staging environment.Remember to move the card(s) along on Trello.">
+is merged to the working branch, usually develop.">
           <a href="#staging" data-target="staging">Staging</a>
           
         </li>
       </ul>
       <ul>
-        <li data-title="Production" data-content="Production deployments are done by manually merging develop into master.
-Since everything on develop has been through a pull request with CI tests, we
-can be confident in the quality and stability.To deploy:
+        <li data-title="Production" data-content="Production deployments are triggered manually by merging into main.We do not have a standard release process though recent services follow a
+process such as
+this example.A basic process:
   review what work is currently awaiting deployment by looking at Trello, if
 there are any unaccepted stories then you should hold off
   update the changelog
-  
-    let the team know you’re deploying to Production
-
-    git fetch
-git checkout master
-git pull
-git merge origin/develop
-git push
-    
-  
-  verify the deployment has been successful
+  let the team know you’re deploying to Production
   tag the merge commit with the version matching the
 changelog
-  update Trello with all the cards that have now been deployed
+  verify the deployment has been successful with smoke tests
+  update Trello cards to indicate that they have now been deployed
 ">
           <a href="#production" data-target="production">Production</a>
           
@@ -389,81 +304,71 @@ changelog
       </ul>
       <ul>
         <li data-title="Branching" data-content="How to make a branchCreate the branch off of develop:git fetch
-git checkout develop
-git branch <branch-name>
-git checkout <branch-name>
-
-# or the shorthand
-
 git checkout -b <branch-name> origin/develop
 ">
           <a href="#branching" data-target="branching">Branching</a>
                 <ul>
         <li data-title="How to make a branch" data-content="Create the branch off of develop:git fetch
-git checkout develop
-git branch <branch-name>
-git checkout <branch-name>
-
-# or the shorthand
-
 git checkout -b <branch-name> origin/develop
 ">
           <a href="#how-to-make-a-branch" data-target="how-to-make-a-branch">How to make a branch</a>
-                <ul>
-        <li data-title="Naming the branch" data-content="Having a convention allows for:
-  all branches connected to a story or ticket are easily connected now and in
-the future
-  others can easily identify the intent of the contents without having to
-interpret a commit’s title
-  encourages small and concise commits which keeps the focus on the type of
-change being made. If you are adding a new feature and fix something along the
-way, that should be 2 commits instead of 1
-">
-          <a href="#naming-the-branch" data-target="naming-the-branch">Naming the branch</a>
           
         </li>
       </ul>
       <ul>
-        <li data-title="Convention" data-content="
+        <li data-title="Naming the branch" data-content="Having a convention means:
+  all branches connected to a story or ticket are easily connected now and in
+the future
+  others can easily identify the intent of the contents without having to
+interpret a branch name
+  small and concise branches which keep the focus on the type of change being
+made are encouraged
+">
+          <a href="#naming-the-branch" data-target="naming-the-branch">Naming the branch</a>
+                <ul>
+        <li data-title="Branch prefixes" data-content="
   
     Feature
 
     A branch that adds a new feature, as defined by the specified story
+
+    Example: feature/523797477-add-logging-to-registration
   
   
     Fix
 
-    A branch that corrects a problem in a feature already merged into develop
+    A branch that corrects a problem in a feature already merged into the
+development branch
+
+    Example: fix/423797477-logging-happens-in-both-environments
   
   
     Chore
 
     Chore branches are used for routine tasks for maintaining the application like
 package upgrades, they don’t provide a new feature or fix an existing one
+
+    Example: chore/1934729239-reduce-caching-for-contact-details
+  
+  
+    Refactor
+
+    Refactor branches only include changes that do not change the systems outward
+behaviour or interface.
+
+    Example: refactor/243234-api-serves-response-more-efficiently
   
   
     Hotfix
 
     A branch that adds an urgent fix to a problem that affects production. These
-branches are based on master and do not go via develop, so must be also be
-merged into develop when deployed
+branches are based on the production branch and do not go via the development
+branch, so must be also be merged into the latter when deployed
+
+    Example: hotfix/253947623-remove-breaking-change-to-repair-creation
   
-feature/{STORY ID}-{CONCISE TITLE}
-fix/{STORY/TICKET ID}-{CONCISE TITLE}
-chore/{STORY ID}-{CONCISE TITLE}
-hotfix/{TICKET ID}-{CONCISE TITLE}
 ">
-          <a href="#convention" data-target="convention">Convention</a>
-          
-        </li>
-      </ul>
-      <ul>
-        <li data-title="Examples" data-content="feature/523797477-add-logging-to-registration
-fix/423797477-logging-happens-in-both-environments
-chore/1934729239-reduce-caching-for-contact-details
-hotfix/253947623-remove-breaking-change-to-repair-creation
-">
-          <a href="#examples" data-target="examples">Examples</a>
+          <a href="#branch-prefixes" data-target="branch-prefixes">Branch prefixes</a>
           
         </li>
       </ul>
@@ -471,7 +376,7 @@ hotfix/253947623-remove-breaking-change-to-repair-creation
         </li>
       </ul>
       <ul>
-        <li data-title="Update your branch with the latest changes on develop (rebasing)" data-content="When working in a team, other pull requests will often get merged in before
+        <li data-title="Update your branch with the latest changes (rebasing)" data-content="When working in a team, other pull requests will often get merged in before
 yours is finished. It’s important to make sure you’re developing against the
 latest version of the code base as much as possible.You can do this by rebasing your work on top of the develop branch.git checkout <branch-name>
 git rebase origin/develop
@@ -481,7 +386,7 @@ If in doubt talk to the other developer who you’re conflicting with and reason
 out what the correct state should be.Force pushing in this situation is the only time it should be necessary, adding
 --force-with-lease ensures you don’t accidentally overwrite someone else’s
 additions.">
-          <a href="#update-your-branch-with-the-latest-changes-on-develop-rebasing" data-target="update-your-branch-with-the-latest-changes-on-develop-rebasing">Update your branch with the latest changes on develop (rebasing)</a>
+          <a href="#update-your-branch-with-the-latest-changes-rebasing" data-target="update-your-branch-with-the-latest-changes-rebasing">Update your branch with the latest changes (rebasing)</a>
           
         </li>
       </ul>
@@ -489,28 +394,56 @@ additions.">
         </li>
       </ul>
       <ul>
-        <li data-title="Committing" data-content="Taking the time to write good commits is as valuable as writing good code. They
-record the story of each project, line by line, which makes it possible to
-understand now and in the future.Ask yourself these questions:
-  what is the new behaviour of the application?
-  have I written down why I chose this approach over the others?
-  are there relevant links I could include to help the next person?
-">
+        <li data-title="Committing" data-content="Good commits are small, focused and self-contained.Code is written once, changed occasionally but read frequently. By taking the
+time to document what we’ve built and why, we enable others to build their
+shared understanding of the codebase too. Once we have a stronger shared
+understanding we are able to make more informed decisions, avoid repeated
+effort, receive more valuable feedback and spot new opportunities.">
           <a href="#committing" data-target="committing">Committing</a>
                 <ul>
-        <li data-title="Examples" data-content="# Poor
-Added repairs
+        <li data-title="What to include" data-content="Helpful questions to ask yourself when organising the content of your commit:
+  is the code focused on a single problem? Commits should be small and focused
+rather than trying to do multiple things at once
+  is the code refactoring existing behaviour or introducing a behavioural
+change? Refactorings can often be noisy and make it hard to see the new
+changes within. Split commits based on the the type of change
+  are the unit tests included? Each new commit should keep the test suite green
+  is a
+changelog entry
+or architecture decision record necessary?
+">
+          <a href="#what-to-include" data-target="what-to-include">What to include</a>
+          
+        </li>
+      </ul>
+      <ul>
+        <li data-title="What to write" data-content="Taking the time to write good commits is as valuable as writing good code. They
+record the story of each repository, line by line, which makes it possible to
+reason about now and in the future.Helpful questions to ask yourself when writing a commit message:
+  what is the new behaviour of the application?
+  have I written down why I chose this approach over the others?
+  are there relevant links I could include to help the next person understand?
+  have I documented any risks, foreseen pitfalls or potential consequences?
+  are there relevant links I could include to help the reader get the same
+information I had when making my decision?
+  have I called out any subtleties in the implementation that are worth drawing
+attention to or explaining?
+">
+          <a href="#what-to-write" data-target="what-to-write">What to write</a>
+                <ul>
+        <li data-title="Examples" data-content="# Before
+Add job postings
 
-# Great
+# After
 Job postings are now displayed on the landing page
 
 - Getting the Job postings out of the external API proved difficult but I think
   the solution we have will allow us to easily upgrade to the new release they
   have planned: <link>
-# Poor
+# Before
 Fixed the form
 
-# Great
+# After
 Food order form works with special characters
 
 - Previously the form failed to send if the starter value included any of the
@@ -519,43 +452,110 @@ Food order form works with special characters
   I found this new bug in PHP: <link>
 - As a short term workaround until the bug is fixed I am stripping out any of
   these characters if they are present.
-# Poor
+# Before
 Gem upgrade
 
-# Great
+# After
 Upgrade widget to v1.2.1
 
 - This widget now includes a patch that improves resilience: <link>
 - We are still unable to upgrade to v2.x as we need to do some migration work
   first
 ">
-          <a href="#examples-1" data-target="examples-1">Examples</a>
+          <a href="#examples" data-target="examples">Examples</a>
           
         </li>
       </ul>
 
         </li>
       </ul>
+
+        </li>
+      </ul>
       <ul>
-        <li data-title="Code review" data-content="We believe that code reviews are important. They help us to learn from each
-other, to maintain consistency in the code we write, and to ensure we push
-well-reasoned and bug-free code to Production. When performing a code review, we
-make sure that:
-  we cannot see any code that could give rise to a security vulnerability
-  the story has been implemented clearly and maintainably
-  the code contains well-written commits that help us to understand the changes
-  the code follows code style guides
-  the changelog has been updated is the change was
-significant
-It is not important that a story be implemented exactly how you would have done
-it. Only that it meets the criteria above. When we find problems, we give
-feedback to the developer who implemented the story, not fix things ourselves
-inline with our principle of ‘Own your code’.It’s also important that code reviews have a constructive, amicable tone. To
-this end, we bear in mind the
-Thoughtbot code
-review guide, which contains good rules for keeping things positive and useful.">
+        <li data-title="Code review" data-content="Code reviews help us ship better quality code and provide an opportunity to
+learn from each other.">
           <a href="#code-review" data-target="code-review">Code review</a>
+                <ul>
+        <li data-title="How to begin" data-content="To help review code changes you can
+enable split review within GitHub.Pull requests include a lot buttons and information that are all competing for
+our attention. There are several ways we can view the information so having a
+plan can be helpful. Here is an example of what a good and thorough review looks
+like:
+  read the description to help you understand what we are doing and why. If
+it’s unclear, stopping to find out will likely lead to a more valuable review
+  check the status is “Open” and that all “Checks” have passed. If this isn’t
+the case it may not be ready for a review. We want to review a stable set of
+changes that aren’t still being worked on. Ask the author if in doubt
+  scan through the “Files changed” tab briefly to peak at the new state of the
+system to get your bearings, we are looking at the general size of the change
+as well as the different entities involved (optional)
+  first pass (read) - Go to the the “Commit” tab, here we will see all the
+individual commits with the oldest at the top. Go into the oldest commit and
+start navigating using the “Next” button. Read the description and the
+contents with the aim of understanding each change and its rationale. Make
+quick notes to yourself for areas of interest you’d like to come back to, the
+trick is to make these low cost so we can maintain focus. Writing thoughtful
+feedback takes time and we may even find that the situation changes in later
+commits, making the feedback redundant
+  second pass (review) - Now is the time to leave feedback. Go back to the
+oldest commit and this time as you go through think about the following,
+leaving comments on the nearest line where appropriate:
+    
+      did you have a note for this commit? Now is the time to explore and test
+any alternative ideas before making recommendations
+      use the following checklist to help assess the
+contents
+    
+  
+  submit your review and let the author know
+Tip: You can add ?w=1 to the end of the URL to strip out noisy whitespace.">
+          <a href="#how-to-begin" data-target="how-to-begin">How to begin</a>
           
+        </li>
+      </ul>
+      <ul>
+        <li data-title="What to look for" data-content="When performing a code review we:
+  check the pull request is descriptive, explains the story and doesn’t assume
+knowledge. Some templates ask for screenshots to help illustrate the change
+before and after
+  check the code is safe
+(OWASP top ten) (Brakeman should be
+checking for obvious issues automatically)
+  check the code follows a consistent style (Standard should be checking this
+automatically)
+  check the code is readable (did you find it easy to build an understanding?)
+  check the code for maintainability
+(SOLID principles)
+  check the code is tested (Test suites and Coverage tools should check
+automatically)
+  check the code is unlikely to introduce future bugs (this is tricky to do and
+it’s okay if you don’t find any as we fail fast and fix)
+  check the commits are reasonably small and focused towards making one change.
+They should not include unexpected or unrelated changes
+  check the commits messages are descriptive
+  check the changelog has been updated
+">
+          <a href="#what-to-look-for" data-target="what-to-look-for">What to look for</a>
+          
+        </li>
+      </ul>
+      <ul>
+        <li data-title="Writing feedback" data-content="It is not important that a story be implemented exactly how you would have done
+it, only that it meets the acceptance criteria. When we find problems we give
+feedback to the author rather than fix things ourselves inline with our
+principle of ‘Own your code’.It’s important that code reviews have a constructive and amicable tone. A
+helpful mindset is one of assuming good intent. Be mindful that you might not
+have all the information and so ask questions such as “Why did you do this like
+X?” rather than “You should do it this like Y!”.Summarise your feedback. Be clear on which points require further action and
+which are advisory. You should both feel confident about what’s necessary and
+what to expect in order to move forward.Thoughtbot’s
+code review guide contains good rules for keeping the tone positive.">
+          <a href="#writing-feedback" data-target="writing-feedback">Writing feedback</a>
+          
+        </li>
+      </ul>
+
         </li>
       </ul>
       <ul>
@@ -563,12 +563,7 @@ review guide, which contains good rules for keeping things positive and useful."
 to follow for the rest of the team. Similar to the guidelines laid out in
 Thoughtbot’s style guide,
 approach this guidance as a way to code on present and future projects, not
-something to retroactively add to existing projects. When working on existing
-projects or joining a project, make sure to follow the code style that is
-already in place.While it can be tempting to write a new style guide, it’s not a worthwhile
-investment of time. It’s important that a consistent style is adopted, but
-mostly unimportant which specific style it is. So rather than having our own, we
-have chosen the following existing style guides for our work:
+something to retroactively add to existing projects.
   PHP -
 PSR-2
   Ruby -
@@ -576,7 +571,8 @@ Ruby community style guide
   Sass -
 Sass Guidelines - Syntax and formatting
   JavaScript - Standard
-">
+When joining an existing code base we suggest following any existing code style
+rather than changing it.">
           <a href="#code-style" data-target="code-style">Code style</a>
           
         </li>
@@ -584,25 +580,41 @@ Sass Guidelines - Syntax and formatting
       <ul>
         <li data-title="Pull requests" data-content="When we have finished a piece of work on a branch, we
 make a pull request
-using the project’s GitHub/GitLab page.We prefix pull request titles with the Story ID to make it easy to find the
-story and the acceptance criteria that should be met.A good pull request should:
-  be created by the authoring developer
-  meet all of the acceptance criteria on the associated story
-  focus on the single problem at hand, not doing so will usually increase the
-time taken to get it merged
-  include appropriate detail to assist the reviewer, this includes links to
-relevant content and a duplication of anything of note in the commit
-descriptions
-  update the changelog if it’s a significant change
-# Poor
-A new registration form and fix a bug with contacts
-
-# Great
-[123456789] New users can now register for an account
-
-- This has been rate limited, would like your feedback on the values I've chosen
-- Passwords are encrypted using BCrypt, so I've taken this opportunity to
-  increase the default rounds from 8 to 12
+using the project’s GitHub/GitLab page.We link each pull request with the related Trello card to make it easier to
+find. We could prefix the card number to the pull request title or link to the
+card directly within the description or a comment.A good pull request should:
+  link to the Trello card for extra context, but not rely on Trello cards alone
+as they can be easily removed or moved
+  describe the problem without assuming the reader has existing context
+  highlight the changes being made
+  describe and bring attention to particular difficulties or areas that you
+particularly want the opinion of the reviewer
+  include screenshots for user facing changes (following the pull request
+template prompts)
+  be clear which acceptance criteria are being met and which aren’t if there is
+follow up work to do
+  explain if a task is being broken down into multiple pull requests and what
+the review order should be
+  describe any follow up work or steps that need to be done to complete the task
+  be focused on a single problem, preferring to split additional problems into
+other pull requests - the smaller the pull request, the easier it is to be
+reviewed and the quicker it is likely to be merged
+  describe any consequences of the work
+  update the changelog
+Real examples:
+  Cristina
+  Dom
+  Ed
+  George
+  James C
+  Laura
+  Lawrence
+  Leeky
+  Lorna
+  Meyric
+  Nick
+  Robbie
+  Stuart
 ">
           <a href="#pull-requests" data-target="pull-requests">Pull requests</a>
           
@@ -672,89 +684,7 @@ for more context around this decision.">
 
 <h3 id="development-principles">Development principles</h3>
 
-<p>As part of regular retrospectives we evolve our principles by identifying what
-works well. When we try something that helps with a particular pattern of
-problem the team can acknowledge the benefits it brings and introduce it as a
-principle.</p>
-
-<h4 id="communicate-frequently">Communicate frequently</h4>
-
-<ul>
-  <li>space to learn from each other</li>
-  <li>make shared decisions</li>
-  <li>prevent duplication</li>
-  <li>solve problems quicker</li>
-</ul>
-
-<h4 id="two-pairs-of-eyes">Two pairs of eyes</h4>
-
-<p>All code we write needs be reviewed by another developer. We hope that doing
-this will mean we:</p>
-
-<ul>
-  <li>ship better quality code</li>
-  <li>get the opportunity to learn new skills</li>
-  <li>increase the shared knowledge of our products</li>
-</ul>
-
-<h4 id="everything-is-tracked">Everything is tracked</h4>
-
-<p>All code we write is represented in Trello (or another ticketing system as
-required by the client) so that:</p>
-
-<ul>
-  <li>the client can easily visualise how we’re doing and what needs their attention</li>
-  <li>the team can see and react to bottle necks</li>
-  <li>delivery managers can see what cards have been lingering</li>
-  <li>developers can be confident what they are deploying</li>
-</ul>
-
-<h4 id="own-your-code">Own your code</h4>
-
-<p>Having the opportunity to see a piece of work through to completion is a great
-way to for developers to grow. To encourage this we ask reviewers to leave their
-feedback, ask questions and discuss the code but not to make any changes without
-the okay from the author. This will hopefully allow us to:</p>
-
-<ul>
-  <li>learn from our mistakes</li>
-  <li>create personal achievements from seeing work through to production</li>
-</ul>
-
-<h4 id="do-the-smallest-amount-of-good-work">Do the smallest amount of good work</h4>
-
-<p>We aspire to regularly ship
-<a href="https://robots.thoughtbot.com/what-is-good-code">good code</a> and deliver it to
-the users as often as possible. Doing so efficiently requires a balanced
-approach to development.</p>
-
-<p>Good signs:</p>
-
-<ul>
-  <li>the code is easy to read and understand</li>
-  <li>the code didn’t take too long to write</li>
-  <li>the code is relatively easy to change</li>
-</ul>
-
-<p>Bad signs:</p>
-
-<ul>
-  <li>spending too much time over engineering (gold plating) our code</li>
-  <li>delivering too quickly at the cost of any code quality</li>
-</ul>
-
-<h4 id="the-twenty-minute-rules">The twenty-minute rules</h4>
-
-<ol>
-  <li>being helpful is one of our values and this extends to development. If after
-spending 20 minutes on a problem you haven’t made progress, invoke the
-twenty-minute rule with another developer and get their advice</li>
-  <li>discussions that go on for twenty-minutes or more can be a time sink. If an
-agreement on how to progress cannot be found after 20 minutes, mentioning
-this rule provides a pre-agreed way to acknowledge the problem and get to a
-resolution as quickly as possible. Rate your concern for the issue out of 10
-and a next step should naturally emerge</li>
-</ol>
+<p><a href="../_includes/sections/our-professions/development.md#development-team-principles">Development principles can be found in the development profession.</a></p>
 
 <hr />
 
@@ -767,14 +697,9 @@ general guidelines.</p>
 
 <ol>
   <li>assign yourself to the Trello card</li>
-  <li>move the card to Trello’s ‘In progress’ column</li>
-  <li>
-    <p><a href="#how-to-make-a-branch">make a new branch</a> off of <code class="language-plaintext highlighter-rouge">develop</code></p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout -b &lt;branch-name&gt; origin/develop
-</code></pre></div>    </div>
-  </li>
-  <li>meet the acceptance criteria</li>
+  <li>move the card to indicate you’ve started work</li>
+  <li><a href="#how-to-make-a-branch">make a new branch from the active development branch</a></li>
+  <li>write tested code that meets the acceptance criteria</li>
   <li>update the <a href="#tracking-changes">changelog</a></li>
   <li><a href="#committing">commit</a> your code</li>
 </ol>
@@ -788,36 +713,52 @@ general guidelines.</p>
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push origin &lt;branch-name&gt;
 </code></pre></div>    </div>
   </li>
-  <li>create a <a href="#pull-requests">pull request</a> into the <code class="language-plaintext highlighter-rouge">develop</code> branch</li>
+  <li>create a <a href="#pull-requests">pull request</a> into the active development branch</li>
   <li>link the Trello card to the new pull request, linking directly or by using
 the Trello
 <a href="https://help.trello.com/article/1021-integrating-trello-with-zendesk">power up</a></li>
-  <li>move the Trello card into the ‘Awaiting review column’</li>
+  <li>update the card to indicate it’s now ready for review by a peer</li>
 </ol>
 
 <h3 id="reviewing-another-developers-pull-request">Reviewing another developer’s pull request</h3>
 
 <ul>
-  <li>move the Trello card into the ‘Under code review’ column</li>
-  <li>find and read the Trello card’s acceptance criteria</li>
+  <li>update the Trello card to indicate you’re now looking at it</li>
+  <li>find and read the Trello card’s user need or acceptance criteria</li>
   <li>find and read through the pull request, carrying out a
 <a href="#code-review">code review</a>
     <ul>
-      <li>if it is ready:
+      <li>if you think it’s ready:
         <ul>
-          <li>press the merge button</li>
-          <li>delete the leftover branch</li>
-          <li>move the Trello card into ‘Deployed to Staging’</li>
+          <li>leave your feedback (positive comments are great to receive)</li>
+          <li>approve the pull request</li>
         </ul>
       </li>
-      <li>if it’s not ready:
+      <li>if you think it’s not ready:
         <ul>
-          <li>leave feedback</li>
-          <li>mention the author so they’re aware</li>
+          <li>leave your feedback</li>
+          <li>consider letting the author know by Slack that it’s back with them</li>
         </ul>
       </li>
     </ul>
   </li>
+</ul>
+
+<p>GitHub offers us a number of options when finalising a review. These may be
+interpreted and used differently depending on style but a good rule of thumb to
+get started could be:</p>
+
+<ul>
+  <li>Approve - I am confident that this pull request can safely be merged in. I MAY
+also leave optional suggestions which the reviewer MAY want to consider</li>
+  <li>Comment - I may not be confident in the change, in which case I should explain
+why this SHOULD NOT be merged yet and what SHOULD be considered. Alternatively
+I might not feel confident enough to approve this pull request but MAY have
+suggestions that SHOULD be considered</li>
+  <li>Request changes (not available on GitLab) - This may be used to further
+indicate that this pull request SHOULD NOT be merged. It may contain severe
+issues such as security concerns or bugs which might have a serious impact.
+This option is used to explicitly nullify any other review that chose approval</li>
 </ul>
 
 <hr />
@@ -908,42 +849,35 @@ git push
 we build, test and deploy as frequently as possible.</p>
 
 <p>We do this by using services such as Chef, TravisCI or GitHub Actions which are
-configured to listen for Git pushes and then initiate the correct deployment.</p>
+configured to listen for Git pushes and then initiate an automatic deployment.</p>
+
+<p>Whilst these deployments should be automatic it should be noted that they can
+take a short time to run.</p>
 
 <h3 id="staging">Staging</h3>
 
 <p>Staging deployments are automatic and should be initiated when each pull request
-is merged. When you click merge the changes are immediately deployed to the
-Staging environment.</p>
-
-<p>Remember to move the card(s) along on Trello.</p>
+is merged to the working branch, usually <code class="language-plaintext highlighter-rouge">develop</code>.</p>
 
 <h3 id="production">Production</h3>
 
-<p>Production deployments are done by manually merging <code class="language-plaintext highlighter-rouge">develop</code> into <code class="language-plaintext highlighter-rouge">master</code>.
-Since everything on <code class="language-plaintext highlighter-rouge">develop</code> has been through a pull request with CI tests, we
-can be confident in the quality and stability.</p>
+<p>Production deployments are triggered manually by merging into <code class="language-plaintext highlighter-rouge">main</code>.</p>
 
-<p>To deploy:</p>
+<p>We do not have a standard release process though recent services follow a
+process such as
+<a href="https://github.com/DFE-Digital/buy-for-your-school/blob/develop/doc/release-process.md">this example</a>.</p>
+
+<p>A basic process:</p>
 
 <ol>
   <li>review what work is currently awaiting deployment by looking at Trello, if
 there are any unaccepted stories then you should hold off</li>
   <li>update the <a href="#tracking-changes">changelog</a></li>
-  <li>
-    <p>let the team know you’re deploying to Production</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git fetch
-git checkout master
-git pull
-git merge origin/develop
-git push
-</code></pre></div>    </div>
-  </li>
-  <li>verify the deployment has been successful</li>
+  <li>let the team know you’re deploying to Production</li>
   <li>tag the merge commit with the version matching the
 <a href="#tracking-changes">changelog</a></li>
-  <li>update Trello with all the cards that have now been deployed</li>
+  <li>verify the deployment has been successful with smoke tests</li>
+  <li>update Trello cards to indicate that they have now been deployed</li>
 </ol>
 
 <hr />
@@ -955,72 +889,68 @@ git push
 <p>Create the branch off of <code class="language-plaintext highlighter-rouge">develop</code>:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git fetch
-git checkout develop
-git branch &lt;branch-name&gt;
-git checkout &lt;branch-name&gt;
-
-# or the shorthand
-
 git checkout -b &lt;branch-name&gt; origin/develop
 </code></pre></div></div>
 
-<h4 id="naming-the-branch">Naming the branch</h4>
+<h3 id="naming-the-branch">Naming the branch</h3>
 
-<p>Having a convention allows for:</p>
+<p>Having a convention means:</p>
 
 <ul>
   <li>all branches connected to a story or ticket are easily connected now and in
 the future</li>
   <li>others can easily identify the intent of the contents without having to
-interpret a commit’s title</li>
-  <li>encourages small and concise commits which keeps the focus on the type of
-change being made. If you are adding a new feature and fix something along the
-way, that <em>should</em> be 2 commits instead of 1</li>
+interpret a branch name</li>
+  <li>small and concise branches which keep the focus on the type of change being
+made are encouraged</li>
 </ul>
 
-<h4 id="convention">Convention</h4>
+<h4 id="branch-prefixes">Branch prefixes</h4>
 
 <ul>
   <li>
-    <p>Feature</p>
+    <p><strong>Feature</strong></p>
 
     <p>A branch that adds a new feature, as defined by the specified story</p>
-  </li>
-  <li>
-    <p>Fix</p>
 
-    <p>A branch that corrects a problem in a feature already merged into <code class="language-plaintext highlighter-rouge">develop</code></p>
+    <p>Example: <code class="language-plaintext highlighter-rouge">feature/523797477-add-logging-to-registration</code></p>
   </li>
   <li>
-    <p>Chore</p>
+    <p><strong>Fix</strong></p>
+
+    <p>A branch that corrects a problem in a feature already merged into the
+development branch</p>
+
+    <p>Example: <code class="language-plaintext highlighter-rouge">fix/423797477-logging-happens-in-both-environments</code></p>
+  </li>
+  <li>
+    <p><strong>Chore</strong></p>
 
     <p>Chore branches are used for routine tasks for maintaining the application like
 package upgrades, they don’t provide a new feature or fix an existing one</p>
+
+    <p>Example: <code class="language-plaintext highlighter-rouge">chore/1934729239-reduce-caching-for-contact-details</code></p>
   </li>
   <li>
-    <p>Hotfix</p>
+    <p><strong>Refactor</strong></p>
+
+    <p>Refactor branches only include changes that do not change the systems outward
+behaviour or interface.</p>
+
+    <p>Example: <code class="language-plaintext highlighter-rouge">refactor/243234-api-serves-response-more-efficiently</code></p>
+  </li>
+  <li>
+    <p><strong>Hotfix</strong></p>
 
     <p>A branch that adds an urgent fix to a problem that affects production. These
-branches are based on <code class="language-plaintext highlighter-rouge">master</code> and do not go via <code class="language-plaintext highlighter-rouge">develop</code>, so must be also be
-merged into <code class="language-plaintext highlighter-rouge">develop</code> when deployed</p>
+branches are based on the production branch and do not go via the development
+branch, so must be also be merged into the latter when deployed</p>
+
+    <p>Example: <code class="language-plaintext highlighter-rouge">hotfix/253947623-remove-breaking-change-to-repair-creation</code></p>
   </li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>feature/{STORY ID}-{CONCISE TITLE}
-fix/{STORY/TICKET ID}-{CONCISE TITLE}
-chore/{STORY ID}-{CONCISE TITLE}
-hotfix/{TICKET ID}-{CONCISE TITLE}
-</code></pre></div></div>
-
-<h4 id="examples">Examples</h4>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>feature/523797477-add-logging-to-registration
-fix/423797477-logging-happens-in-both-environments
-chore/1934729239-reduce-caching-for-contact-details
-hotfix/253947623-remove-breaking-change-to-repair-creation
-</code></pre></div></div>
-
-<h3 id="update-your-branch-with-the-latest-changes-on-develop-rebasing">Update your branch with the latest changes on <code class="language-plaintext highlighter-rouge">develop</code> (rebasing)</h3>
+<h3 id="update-your-branch-with-the-latest-changes-rebasing">Update your branch with the latest changes (rebasing)</h3>
 
 <p>When working in a team, other pull requests will often get merged in before
 yours is finished. It’s important to make sure you’re developing against the
@@ -1045,24 +975,55 @@ additions.</p>
 
 <h2 id="committing">Committing</h2>
 
-<p>Taking the time to write good commits is as valuable as writing good code. They
-record the story of each project, line by line, which makes it possible to
-understand now and in the future.</p>
+<p>Good commits are small, focused and self-contained.</p>
 
-<p>Ask yourself these questions:</p>
+<p>Code is written once, changed occasionally but read frequently. By taking the
+time to document what we’ve built and why, we enable others to build their
+shared understanding of the codebase too. Once we have a stronger shared
+understanding we are able to make more informed decisions, avoid repeated
+effort, receive more valuable feedback and spot new opportunities.</p>
+
+<h3 id="what-to-include">What to include</h3>
+
+<p>Helpful questions to ask yourself when organising the content of your commit:</p>
+
+<ul>
+  <li>is the code focused on a single problem? Commits should be small and focused
+rather than trying to do multiple things at once</li>
+  <li>is the code refactoring existing behaviour or introducing a behavioural
+change? Refactorings can often be noisy and make it hard to see the new
+changes within. Split commits based on the the type of change</li>
+  <li>are the unit tests included? Each new commit should keep the test suite green</li>
+  <li>is a
+<a href="https://github.com/dxw/tech-team-rfcs/blob/main/rfc-019-use-changelogs-to-track-changes.md">changelog entry</a>
+or architecture decision record necessary?</li>
+</ul>
+
+<h3 id="what-to-write">What to write</h3>
+
+<p>Taking the time to write good commits is as valuable as writing good code. They
+record the story of each repository, line by line, which makes it possible to
+reason about now and in the future.</p>
+
+<p>Helpful questions to ask yourself when writing a commit message:</p>
 
 <ul>
   <li>what is the <strong>new</strong> behaviour of the application?</li>
   <li>have I written down <strong>why</strong> I chose this approach over the others?</li>
-  <li>are there relevant links I could include to help the next person?</li>
+  <li>are there relevant links I could include to help the next person understand?</li>
+  <li>have I documented any risks, foreseen pitfalls or potential consequences?</li>
+  <li>are there relevant links I could include to help the reader get the same
+information I had when making my decision?</li>
+  <li>have I called out any subtleties in the implementation that are worth drawing
+attention to or explaining?</li>
 </ul>
 
-<h3 id="examples-1">Examples</h3>
+<h4 id="examples">Examples</h4>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Poor
-Added repairs
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Before
+Add job postings
 
-# Great
+# After
 Job postings are now displayed on the landing page
 
 - Getting the Job postings out of the external API proved difficult but I think
@@ -1070,10 +1031,10 @@ Job postings are now displayed on the landing page
   have planned: &lt;link&gt;
 </code></pre></div></div>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Poor
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Before
 Fixed the form
 
-# Great
+# After
 Food order form works with special characters
 
 - Previously the form failed to send if the starter value included any of the
@@ -1084,10 +1045,10 @@ Food order form works with special characters
   these characters if they are present.
 </code></pre></div></div>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Poor
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Before
 Gem upgrade
 
-# Great
+# After
 Upgrade widget to v1.2.1
 
 - This widget now includes a patch that improves resilience: &lt;link&gt;
@@ -1099,29 +1060,95 @@ Upgrade widget to v1.2.1
 
 <h2 id="code-review">Code review</h2>
 
-<p>We believe that code reviews are important. They help us to learn from each
-other, to maintain consistency in the code we write, and to ensure we push
-well-reasoned and bug-free code to Production. When performing a code review, we
-make sure that:</p>
+<p>Code reviews help us ship better quality code and provide an opportunity to
+learn from each other.</p>
+
+<h3 id="how-to-begin">How to begin</h3>
+
+<p>To help review code changes you can
+<a href="https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests#diff-view-options">enable split review within GitHub</a>.</p>
+
+<p>Pull requests include a lot buttons and information that are all competing for
+our attention. There are several ways we can view the information so having a
+plan can be helpful. Here is an example of what a good and thorough review looks
+like:</p>
+
+<ol>
+  <li>read the description to help you understand what we are doing and why. If
+it’s unclear, stopping to find out will likely lead to a more valuable review</li>
+  <li>check the status is “Open” and that all “Checks” have passed. If this isn’t
+the case it may not be ready for a review. We want to review a stable set of
+changes that aren’t still being worked on. Ask the author if in doubt</li>
+  <li>scan through the “Files changed” tab briefly to peak at the new state of the
+system to get your bearings, we are looking at the general size of the change
+as well as the different entities involved (optional)</li>
+  <li>first pass (read) - Go to the the “Commit” tab, here we will see all the
+individual commits with the oldest at the top. Go into the oldest commit and
+start navigating using the “Next” button. Read the description and the
+contents with the aim of understanding each change and its rationale. Make
+quick notes to yourself for areas of interest you’d like to come back to, the
+trick is to make these low cost so we can maintain focus. Writing thoughtful
+feedback takes time and we may even find that the situation changes in later
+commits, making the feedback redundant</li>
+  <li>second pass (review) - Now is the time to leave feedback. Go back to the
+oldest commit and this time as you go through think about the following,
+leaving comments on the nearest line where appropriate:
+    <ul>
+      <li>did you have a note for this commit? Now is the time to explore and test
+any alternative ideas before making recommendations</li>
+      <li>use the <a href="#what-to-look-for">following checklist</a> to help assess the
+contents</li>
+    </ul>
+  </li>
+  <li>submit your review and let the author know</li>
+</ol>
+
+<p>Tip: You can add <code class="language-plaintext highlighter-rouge">?w=1</code> to the end of the URL to strip out noisy whitespace.</p>
+
+<h3 id="what-to-look-for">What to look for</h3>
+
+<p>When performing a code review we:</p>
 
 <ul>
-  <li>we cannot see any code that could give rise to a security vulnerability</li>
-  <li>the story has been implemented clearly and maintainably</li>
-  <li>the code contains well-written commits that help us to understand the changes</li>
-  <li>the code follows code style guides</li>
-  <li>the <a href="#tracking-changes">changelog</a> has been updated is the change was
-significant</li>
+  <li>check the pull request is descriptive, explains the story and doesn’t assume
+knowledge. Some templates ask for screenshots to help illustrate the change
+before and after</li>
+  <li>check the code is safe
+(<a href="https://owasp.org/www-project-top-ten/">OWASP top ten</a>) (Brakeman should be
+checking for obvious issues automatically)</li>
+  <li>check the code follows a consistent style (Standard should be checking this
+automatically)</li>
+  <li>check the code is readable (did you find it easy to build an understanding?)</li>
+  <li>check the code for maintainability
+(<a href="https://www.digitalocean.com/community/conceptual_articles/s-o-l-i-d-the-first-five-principles-of-object-oriented-design">SOLID principles</a>)</li>
+  <li>check the code is tested (Test suites and Coverage tools should check
+automatically)</li>
+  <li>check the code is unlikely to introduce future bugs (this is tricky to do and
+it’s okay if you don’t find any as we fail fast and fix)</li>
+  <li>check the commits are reasonably small and focused towards making one change.
+They should not include unexpected or unrelated changes</li>
+  <li>check the commits messages are descriptive</li>
+  <li>check the <a href="#tracking-changes">changelog</a> has been updated</li>
 </ul>
 
-<p>It is not important that a story be implemented exactly how you would have done
-it. Only that it meets the criteria above. When we find problems, we give
-feedback to the developer who implemented the story, not fix things ourselves
-inline with our principle of <a href="#own-your-code">‘Own your code’</a>.</p>
+<h3 id="writing-feedback">Writing feedback</h3>
 
-<p>It’s also important that code reviews have a constructive, amicable tone. To
-this end, we bear in mind the
-<a href="https://github.com/thoughtbot/guides/tree/master/code-review">Thoughtbot</a> code
-review guide, which contains good rules for keeping things positive and useful.</p>
+<p>It is not important that a story be implemented exactly how you would have done
+it, only that it meets the acceptance criteria. When we find problems we give
+feedback to the author rather than fix things ourselves inline with our
+principle of <a href="#own-your-code">‘Own your code’</a>.</p>
+
+<p>It’s important that code reviews have a constructive and amicable tone. A
+helpful mindset is one of assuming good intent. Be mindful that you might not
+have all the information and so ask questions such as “Why did you do this like
+X?” rather than “You should do it this like Y!”.</p>
+
+<p>Summarise your feedback. Be clear on which points require further action and
+which are advisory. You should both feel confident about what’s necessary and
+what to expect in order to move forward.</p>
+
+<p><a href="https://github.com/thoughtbot/guides/tree/master/code-review">Thoughtbot’s</a>
+code review guide contains good rules for keeping the tone positive.</p>
 
 <hr />
 
@@ -1131,14 +1158,7 @@ review guide, which contains good rules for keeping things positive and useful.<
 to follow for the rest of the team. Similar to the guidelines laid out in
 <a href="https://playbook.thoughtbot.com/#style-guide">Thoughtbot’s style guide</a>,
 approach this guidance as a way to code on present and future projects, not
-something to retroactively add to existing projects. When working on existing
-projects or joining a project, make sure to follow the code style that is
-already in place.</p>
-
-<p>While it can be tempting to write a new style guide, it’s not a worthwhile
-investment of time. It’s important that a consistent style is adopted, but
-mostly unimportant which specific style it is. So rather than having our own, we
-have chosen the following existing style guides for our work:</p>
+something to retroactively add to existing projects.</p>
 
 <ul>
   <li>PHP -
@@ -1150,6 +1170,9 @@ have chosen the following existing style guides for our work:</p>
   <li>JavaScript - <a href="https://standardjs.com/">Standard</a></li>
 </ul>
 
+<p>When joining an existing code base we suggest following any existing code style
+rather than changing it.</p>
+
 <hr />
 
 <h2 id="pull-requests">Pull requests</h2>
@@ -1158,32 +1181,50 @@ have chosen the following existing style guides for our work:</p>
 <a href="https://help.github.com/articles/using-pull-requests/">make a pull request</a>
 using the project’s GitHub/GitLab page.</p>
 
-<p>We prefix pull request titles with the Story ID to make it easy to find the
-story and the acceptance criteria that should be met.</p>
+<p>We link each pull request with the related Trello card to make it easier to
+find. We could prefix the card number to the pull request title or link to the
+card directly within the description or a comment.</p>
 
 <p>A good pull request should:</p>
 
 <ul>
-  <li>be created by the authoring developer</li>
-  <li>meet all of the acceptance criteria on the associated story</li>
-  <li>focus on the single problem at hand, not doing so will usually increase the
-time taken to get it merged</li>
-  <li>include appropriate detail to assist the reviewer, this includes links to
-relevant content and a duplication of anything of note in the commit
-descriptions</li>
-  <li>update the <a href="#tracking-changes">changelog</a> if it’s a significant change</li>
+  <li>link to the Trello card for extra context, but not rely on Trello cards alone
+as they can be easily removed or moved</li>
+  <li>describe the problem without assuming the reader has existing context</li>
+  <li>highlight the changes being made</li>
+  <li>describe and bring attention to particular difficulties or areas that you
+particularly want the opinion of the reviewer</li>
+  <li>include screenshots for user facing changes (following the pull request
+template prompts)</li>
+  <li>be clear which acceptance criteria are being met and which aren’t if there is
+follow up work to do</li>
+  <li>explain if a task is being broken down into multiple pull requests and what
+the review order should be</li>
+  <li>describe any follow up work or steps that need to be done to complete the task</li>
+  <li>be focused on a single problem, preferring to split additional problems into
+other pull requests - the smaller the pull request, the easier it is to be
+reviewed and the quicker it is likely to be merged</li>
+  <li>describe any consequences of the work</li>
+  <li>update the <a href="#tracking-changes">changelog</a></li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Poor
-A new registration form and fix a bug with contacts
+<p>Real examples:</p>
 
-# Great
-[123456789] New users can now register for an account
-
-- This has been rate limited, would like your feedback on the values I've chosen
-- Passwords are encrypted using BCrypt, so I've taken this opportunity to
-  increase the default rounds from 8 to 12
-</code></pre></div></div>
+<ul>
+  <li><a href="https://github.com/UKGovernmentBEIS/beis-report-official-development-assistance/pull/1094">Cristina</a></li>
+  <li><a href="https://github.com/dxw/judiciary-middleware/pull/497">Dom</a></li>
+  <li><a href="https://github.com/dxw/judiciary-middleware/pull/631">Ed</a></li>
+  <li><a href="https://github.com/dxw/mind-side-by-side/pull/307">George</a></li>
+  <li><a href="https://github.com/UKGovernmentBEIS/beis-report-official-development-assistance/pull/1155">James C</a></li>
+  <li><a href="https://github.com/UKGovernmentBEIS/beis-report-official-development-assistance/pull/665">Laura</a></li>
+  <li><a href="https://github.com/dxw/mind-side-by-side/pull/229">Lawrence</a></li>
+  <li><a href="https://github.com/UKGovernmentBEIS/beis-report-official-development-assistance/pull/1130">Leeky</a></li>
+  <li><a href="https://github.com/DFE-Digital/buy-for-your-school/pull/318">Lorna</a></li>
+  <li><a href="https://github.com/UKGovernmentBEIS/beis-report-official-development-assistance/pull/1149">Meyric</a></li>
+  <li><a href="https://github.com/DFE-Digital/buy-for-your-school/pull/188">Nick</a></li>
+  <li><a href="https://github.com/UKGovernmentBEIS/beis-report-official-development-assistance/pull/1087">Robbie</a></li>
+  <li><a href="https://github.com/UKGovernmentBEIS/beis-report-official-development-assistance/pull/1121">Stuart</a></li>
+</ul>
 
 <hr />
 
