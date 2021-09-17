@@ -216,16 +216,17 @@ Ops Docs guide for this error.">
 you should declare an incident. If in doubt, declare an incident. An incident is
 not a sign of failure.We have incident.io
 installed on the dxw Slack for this purpose.
-  Type /incident <name> in any Slack channel, the name should be something
-short but understandable like “example.com errors”
+  Type /incident <name> in any Slack channel, the name should be
+something short but understandable like “example.com errors”
   Give the incident a description, e.g. “We are seeing a large number of 503
 errors being returned on example.com”
   Select a severity level (see below)
-  Set an incident lead with /incident lead me or /incident lead @person – The
-incident lead does not have to be you and may change over the course of a
+  Set an incident lead with /incident lead me or /incident lead @person –
+The incident lead does not have to be you and may change over the course of a
 response (see below).
 If it is a major or critical incident, you should post a notice in #general so
-that everyone is aware. Something along the lines of:_We have been having a security incident with some wordpress sites since 09:00 see [#inc-2021-07-01-mavis-sites](https://dxw.slack.com/archives/C026BN221D5)_
+that everyone is aware. Something along the lines of:We have been having a security incident with some wordpress sites since 09:00.
+See [#inc-2021-07-01-mavis-sites](https://dxw.slack.com/archives/C026BN221D5)
 ">
           <a href="#declaring-an-incident-1" data-target="declaring-an-incident-1">Declaring an incident</a>
           
@@ -315,12 +316,12 @@ find.">
       </ul>
       <ul>
         <li data-title="Responding to an incident" data-content="When responding to an incident your goals are to:
-  **Understand **what is happening
+  Understand what is happening
   Contain any breach. Revoke any unauthorised access, remove any
 modifications and identify if any data has been compromised. Preserve data
 that may be required for later investigation or forensics.
-  **Restore **normal service by taking action to resolve the problem
-  **Monitor **systems to ensure that they continue to operate normally
+  Restore normal service by taking action to resolve the problem
+  Monitor systems to ensure that they continue to operate normally
 ">
           <a href="#responding-to-an-incident" data-target="responding-to-an-incident">Responding to an incident</a>
                 <ul>
@@ -338,7 +339,7 @@ and you can also use it to update the status and log actions
 (see bot command reference).">
           <a href="#communication" data-target="communication">Communication</a>
                 <ul>
-        <li data-title="Client communications" data-content="_This section is for the client comms manager _Often we will become aware of an incident because a client has raised a Zendesk
+        <li data-title="Client communications" data-content="This section is for the client comms managerOften we will become aware of an incident because a client has raised a Zendesk
 ticket with us, but the incident may also affect other clients.If you expect to receive a large number of tickets, you should create a parent
 ticket to assign all related tickets to. This helps streamline the process of
 communicating with clients.You should put together a list of email addresses for affected clients. This
@@ -681,20 +682,21 @@ not a sign of failure.</p>
 installed on the dxw Slack for this purpose.</p>
 
 <ol>
-  <li>Type /incident &lt;name&gt; in any Slack channel, the name should be something
-short but understandable like “example.com errors”</li>
+  <li>Type /incident &lt;name&gt; in any Slack channel, the name should be
+something short but understandable like “example.com errors”</li>
   <li>Give the incident a description, e.g. “We are seeing a large number of 503
 errors being returned on example.com”</li>
   <li>Select a severity level (see below)</li>
-  <li>Set an incident lead with /incident lead me or /incident lead @person – The
-incident lead does not have to be you and may change over the course of a
+  <li>Set an incident lead with <code class="language-plaintext highlighter-rouge">/incident lead me</code> or <code class="language-plaintext highlighter-rouge">/incident lead @person</code> –
+The incident lead does not have to be you and may change over the course of a
 response (see below).</li>
 </ol>
 
 <p>If it is a major or critical incident, you should post a notice in #general so
 that everyone is aware. Something along the lines of:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_We have been having a security incident with some wordpress sites since 09:00 see [#inc-2021-07-01-mavis-sites](https://dxw.slack.com/archives/C026BN221D5)_
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>We have been having a security incident with some wordpress sites since 09:00.
+See [#inc-2021-07-01-mavis-sites](https://dxw.slack.com/archives/C026BN221D5)
 </code></pre></div></div>
 
 <h3 id="deciding-severity">Deciding severity</h3>
@@ -787,12 +789,12 @@ find.</p>
 <p>When responding to an incident your goals are to:</p>
 
 <ul>
-  <li>**Understand **what is happening</li>
+  <li><strong>Understand</strong> what is happening</li>
   <li><strong>Contain</strong> any breach. Revoke any unauthorised access, remove any
 modifications and identify if any data has been compromised. Preserve data
 that may be required for later investigation or forensics.</li>
-  <li>**Restore **normal service by taking action to resolve the problem</li>
-  <li>**Monitor **systems to ensure that they continue to operate normally</li>
+  <li><strong>Restore</strong> normal service by taking action to resolve the problem</li>
+  <li><strong>Monitor</strong> systems to ensure that they continue to operate normally</li>
 </ul>
 
 <h3 id="communication">Communication</h3>
@@ -818,7 +820,7 @@ and you can also use it to update the status and log actions
 
 <h4 id="client-communications">Client communications</h4>
 
-<p>_This section is for the client comms manager _</p>
+<p><em>This section is for the client comms manager</em></p>
 
 <p>Often we will become aware of an incident because a client has raised a Zendesk
 ticket with us, but the incident may also affect other clients.</p>
