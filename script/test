@@ -26,7 +26,11 @@ if [ -n "$CI" ]; then
   SHELL_SUCCESS=$?
 
   set -e
-
+  
+  echo FORMAT $FORMAT_SUCCESS
+  echo JS $JS_SUCCESS
+  echo RUBY $RUBY_SUCCESS
+  echo SHELL $SHELL_SUCCESS
   [ $FORMAT_SUCCESS = "0" ]
   [ $JS_SUCCESS = "0" ]
   [ $RUBY_SUCCESS = "0" ]
