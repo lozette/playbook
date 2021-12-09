@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: pezholio/playbook
+  repo: lozette/playbook
   branch: main
 media_folder: "_images"
 publish_mode: editorial_workflow
