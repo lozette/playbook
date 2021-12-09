@@ -1,13 +1,9 @@
 ---
-title: Being a tech lead at dxw - Edited
+title: Being a tech lead at dxw
 ---
 ## Being a tech lead…
 
 ### …at an agency
-
-
-
-Things to edit
 
 Our work with a client is always temporary. Sometimes we know the end before we
 start, and sometimes it seems like it will go on forever. But eventually the
