@@ -16,7 +16,6 @@ collections:
           - { label: "Body", name: "body", widget: "markdown" }
     create: false
     slug: "{{slug}}"
-    extension: "md"
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
