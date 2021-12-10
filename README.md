@@ -66,10 +66,3 @@ Check your changes for any issues in the code, formatting, and prose:
 ```sh
 script/test
 ```
-
-The prose linter will only show "errors" and "warnings" by default. If you want
-extra suggestions for better writing, run:
-
-```sh
-npm run lint:prose:suggestions
-```

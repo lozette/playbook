@@ -2,7 +2,6 @@
 .DS_Store
 
 # dependencies
-_styles/proselint/
 _styles/write-good/
 .bundle/
 node_modules/
