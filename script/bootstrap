@@ -54,14 +54,3 @@ npm install
 echo "==> Fetching latest style versions..."
 mkdir -p tmp/
 
-echo "==> Fetching proselint..."
-curl -o tmp/proselint.zip -L https://github.com/errata-ai/proselint/releases/latest/download/proselint.zip
-rm -r _styles/proselint/ || true
-unzip tmp/proselint.zip -d _styles/
-rm tmp/proselint.zip
-
-echo "==> Fetching write-good..."
-curl -o tmp/write-good.zip -L https://github.com/errata-ai/write-good/releases/latest/download/write-good.zip
-rm -r _styles/write-good/ || true
-unzip tmp/write-good.zip -d _styles/
-rm tmp/write-good.zip
