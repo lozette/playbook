@@ -6,6 +6,20 @@ media_folder: "_images"
 publish_mode: editorial_workflow
 show_preview_links: true
 collections:
+  - name: "root"
+    label: "Index"
+    files:
+      - label: "Index page"
+        name: "index"
+        file: "index.md"
+        fields:
+          - { label: "Body", name: "body", widget: "markdown" }
+    create: false
+    slug: "{{slug}}"
+    extension: "md"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
   - name: "guides"
     label: "Guides"
     folder: "guides"
